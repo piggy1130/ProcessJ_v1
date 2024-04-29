@@ -1,0 +1,13 @@
+#pragma LIBRARY;
+#pragma NATIVE;
+#pragma FILE "arduino";
+#pragma LANGUAGE "JVM";
+
+package arduino;
+
+// extern GpioPinDigitalOutput ArduinoPins;
+// extern GpioController gpio;
+
+public native void jl_test_println(string s); 
+
+

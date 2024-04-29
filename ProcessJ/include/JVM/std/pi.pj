@@ -1,0 +1,15 @@
+#pragma LIBRARY;
+#pragma NATIVE;
+#pragma FILE "pi";
+#pragma LANGUAGE "JVM";
+
+package std;
+
+// extern GpioPinDigitalOutput ArduinoPins;
+// extern GpioController gpio;
+
+public native void pi_println(string s); 
+
+public native void pi_led_test();
+
+

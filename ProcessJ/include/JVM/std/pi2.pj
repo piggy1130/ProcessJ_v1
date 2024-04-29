@@ -1,0 +1,10 @@
+#pragma LIBRARY;
+#pragma NATIVE;
+#pragma FILE "pi2";
+#pragma LANGUAGE "JVM";
+
+package std;
+
+public native void pi2_println(string s);
+public native void set_high();
+public native void set_low();

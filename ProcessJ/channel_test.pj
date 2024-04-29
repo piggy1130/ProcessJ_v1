@@ -1,0 +1,46 @@
+import std.*;
+
+public protocol ArduinoLED{
+    on: { }
+    off: { }
+}
+
+void playLED(chan<ArduinoLED>.write c){
+
+    c.write(new ArduinoLED{on: });
+
+//    c.write(new ArduinoLED{off: });
+
+//    Thread.sleep(1000);
+}
+
+void Arduino(chan<ArduinoLED>.read in){
+    while(true){
+        ArduinoLED v = in.read();
+        switch(v){
+            case on: 
+                set_high();
+                //Thread.sleep(1000);
+                //time.sleep(1000);
+                break;
+            case off: 
+                set_low();
+                break;
+        }
+    }
+}
+
+void Pi(){
+    chan <ArduinoLED> c;
+    par{
+        playLED(c.write);
+        Arduino(c.read);
+    }
+}
+
+public void main(string[] args){
+    pi2_println("******");
+    Pi();
+
+}
+
