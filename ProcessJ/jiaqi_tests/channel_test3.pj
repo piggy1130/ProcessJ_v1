@@ -1,27 +1,27 @@
 import std.*;
 
-public protocol PinProtocal{
+public protocol PinProtocol{
     //on: {pin: int }
     //off: {pin: int }
     on: {int pin;}
     off: {int pin;}
 }
 
-void playLED(shared chan<PinProtocal>.write c, int pin){
+void playLED(shared chan<PinProtocol>.write c, int pin){
     for (int i=0; i<5; i++){
         //c.write(new ArduinoLED{on: pin = pin});
-        c.write(new PinProtocal{on: pin = pin});
+        c.write(new PinProtocol{on: pin = pin});
         jl_sleep(1000);
         //c.write(new ArduinoLED{off: pin = pin});
-        c.write(new PinProtocal{off: pin = pin});
+        c.write(new PinProtocol{off: pin = pin});
         jl_sleep(1000);
     }
 }
 
-void RaspberryPi(chan<PinProtocal>.read in){
+void RaspberryPi(chan<PinProtocol>.read in){
     while (true){
         //ArduinoLED v = in.read();
-        PinProtocal v = in.read();
+        PinProtocol v = in.read();
         switch(v){
             case on: 
                 set_high_pi3(v.pin);
@@ -35,7 +35,7 @@ void RaspberryPi(chan<PinProtocal>.read in){
 
 public void main(string[] args){
     pi3_println("******");
-    shared write chan<PinProtocal> c;
+    shared write chan<PinProtocol> c;
     par{
         playLED(c.write, 21);
         //playLED(c.write, 20);
