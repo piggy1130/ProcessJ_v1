@@ -1,0 +1,45 @@
+import std.*;
+
+public protocol PinProtocol{
+    //on: {pin: int }
+    //off: {pin: int }
+    on: {int pin;}
+    off: {int pin;}
+}
+
+void playLED(shared chan<PinProtocol>.write c, int pin){
+    for (int i=0; i<5; i++){
+        //c.write(new ArduinoLED{on: pin = pin});
+        c.write(new PinProtocol{on: pin = pin});
+        jl_sleep(1000);
+        //c.write(new ArduinoLED{off: pin = pin});
+        c.write(new PinProtocol{off: pin = pin});
+        jl_sleep(1000);
+    }
+}
+
+void RaspberryPi(chan<PinProtocol>.read in){
+    while (true){
+        //ArduinoLED v = in.read();
+        PinProtocol v = in.read();
+        switch(v){
+            case on: 
+                set_high_pi4(v.pin);
+                break;
+            case off: 
+                set_low_pi4(v.pin);
+                break;
+        }
+    }
+}
+
+public void main(string[] args){
+    pi4_println("******");
+    shared write chan<PinProtocol> c;
+    par{
+        playLED(c.write, 21);
+        //playLED(c.write, 20);
+        RaspberryPi(c.read);
+    }
+}
+
