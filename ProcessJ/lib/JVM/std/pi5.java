@@ -22,7 +22,7 @@ public class pi5 {
         GpioFactory.setDefaultProvider(new RaspiGpioProvider(RaspiPinNumberingScheme.BROADCOM_PIN_NUMBERING));
 
         for (int pin : PI_GPIO){
-            System.out.println(pin);
+            // System.out.println(pin);
             Pin pin_num = RaspiPin.getPinByAddress(pin);
             pins[pin] = pi.provisionDigitalOutputPin(pin_num, "MyOutput", PinState.LOW);
             // Ensure the pin is shutdown when the program terminates                                                                                             
@@ -47,8 +47,18 @@ public class pi5 {
         pins[pinNo].low();
     }
 
-    public static void get_pin_info(){
-        System.out.println("GPIO Pin State is: " + input_pin.getState());
+    public static int get_pin_info(){
+        PinState state;
+        System.out.println("GPIO Pin State is: " + input_pin.getState()); 
+        if (input_pin.getState() == PinState.HIGH){
+            return 1;
+        }
+        else if (input_pin.getState() == PinState.LOW){
+            return 0;
+        }
+        else{
+            throw new IllegalArgumentException("Unknow PinSate: " + input_pin.getState());
+        }
     }
 
 }
