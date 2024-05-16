@@ -11,20 +11,24 @@ void loop() {
   if (digitalRead(requestPin) == HIGH) { // Check if request signal is received
     digitalWrite(LED_BUILTIN, HIGH);
     sendSignal();
-    delay(1000);  // Delay to prevent continuous sending
   }
   if (digitalRead(requestPin) == LOW) { // Check if request signal is received
     digitalWrite(LED_BUILTIN, LOW);
   }
 }
 
+// assume the signal is 5-digit
 void sendSignal() {
   digitalWrite(signalPin, HIGH);
   delay(500);
-//   digitalWrite(signalPin, LOW);
-//   delay(500);
-//   digitalWrite(signalPin, HIGH);
-//   delay(500);
-//   digitalWrite(signalPin, LOW);
-//   delay(500);  // Ensure signal ends in LOW state
+  digitalWrite(signalPin, LOW);
+  delay(500);
+  digitalWrite(signalPin, LOW);
+  delay(500);
+  digitalWrite(signalPin, LOW);
+  delay(500);  
+  digitalWrite(signalPin, HIGH);
+  delay(500);
+  digitalWrite(signalPin, LOW); // Ensure signal ends in LOW state
+  delay(500);  
 }
