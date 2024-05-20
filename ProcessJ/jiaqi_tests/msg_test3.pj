@@ -1,0 +1,30 @@
+import std.*;
+
+public void main(string[] args){
+    pi6_println("******");
+    int request_pin = 16; //output pin, send request to Arduino
+    int msg_pin = 20; //input pin, read msg from Arduino
+
+    //send request to arduino
+    set_high_pi6(request_pin);
+
+    int i = 0;
+    int state_info = 0;
+    int[] arduiono_msg = new int[5]; 
+    while (i < 5){
+        arduiono_msg[i] = get_pin_info(msg_pin);
+        jl_sleep(500);
+        i = i + 1;
+    }
+    // print message
+    System.out.print("Received Message: ");
+    for (int i=0; i<5; i++){
+        System.out.print(arduiono_msg[i]);
+    }
+    System.out.println();
+
+    // done with msg
+    set_low_pi6(request_pin);
+    jl_sleep(1000);
+
+}
