@@ -1,0 +1,9 @@
+#pragma LIBRARY;
+#pragma NATIVE;
+#pragma FILE "jl_random";
+#pragma LANGUAGE "JVM";
+
+package std;
+
+public native double jl_random_1();
+public native int jl_random_100();
