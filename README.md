@@ -17,3 +17,7 @@ For Raspberry Pi GPIO "output" pin. Send HIGH to Arduino;
 For Raspberry Pi GPIO "output" pin. Send LOW to Arduino;  
 ## get_pin_info(int pinNo);
 For Raspberry Pi GPIO "input" pin. Read Arduino information.  
+## double jl_random_1();  
+get a random number between 0 and 1.  
+## int jl_random_100();  
+get a random integer number between 0 and 100.  
