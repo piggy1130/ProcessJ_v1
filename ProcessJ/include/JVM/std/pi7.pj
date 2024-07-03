@@ -1,0 +1,12 @@
+#pragma LIBRARY;
+#pragma NATIVE;
+#pragma FILE "pi7";
+#pragma LANGUAGE "JVM";
+
+package std;
+
+public native void pi7_println(string s);
+public native void set_high_pi7(int pinNo);
+public native void set_low_pi7(int pinNo);
+public native int get_pin_info_pi7(int pinNo);
+

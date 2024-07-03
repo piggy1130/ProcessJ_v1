@@ -5,32 +5,62 @@ void securePhilosopher(int id, chan<boolean>.write left,
 		       chan<boolean>.write down,
 		       chan<boolean>.write up) {
     while (true) {
-        println(id + ": I am thinking");
-        //get a random number between 1 and 100
-        int randomnumber = jl_random_100(); 
-        int random_sleep_time = randomnumber*50;
-        println("********** " + id + " *****Thinking Time is: " + random_sleep_time);
-        jl_sleep(random_sleep_time);        
-        println(id + ": I want to sit down.");
+        if (id == 0){
+            while(get_pin_info_pi7(21) == 1){
+                println(id + " : I am done of thinking");
+                println(id + ": I want to sit down.");
+                down.write(true);    // ask to sit down
+                println (id + ": Successfully sat down");
+            }
+            par {                // pick up forks
+                left.write(true);  
+                right.write(true);         
+            }
+            // let arduino to eat
+            set_high_pi7(20);
         
-        down.write(true);    // ask to sit down
-        
-        println (id + ": Successfully sat down");
-
-        par {                // pick up forks
-            left.write(true);  
-            right.write(true);         
+            while(get_pin_info_pi7(16) == 0){ // arduino eating
+                println(id + " is eating.");
+                jl_sleep(1000);  
+            }
+            set_low_pi7(20);
+            par {                // put down forks
+                left.write(true);
+                right.write(true);
+            }            
+            println(id + ": I want to get up.");
+            up.write(true);      // get up
+            println(id + ": Successfully get up.");
+            
         }
-        println("^^^^^^^^^^^^^^^ " + id + " ^^^^^^^^^^Eating Time is: 3s");
-        jl_sleep(2000);  
-        par {                // put down forks
-            left.write(true);
-            right.write(true);
-        }
+        else{
+            println(id + ": I am thinking");
+            //get a random number between 1 and 100
+            int randomnumber = jl_random_100(); 
+            int random_sleep_time = randomnumber*50;
+            println("********** " + id + " *****Thinking Time is: " + random_sleep_time);
+            jl_sleep(random_sleep_time);        
+            println(id + ": I want to sit down.");
+            
+            down.write(true);    // ask to sit down
+            
+            println (id + ": Successfully sat down");
 
-        println(id + ": I want to get up.");
-        up.write(true);      // get up
-        println(id + ": Successfully get up.");
+            par {                // pick up forks
+                left.write(true);  
+                right.write(true);         
+            }
+            println("^^^^^^^^^^^^^^^ " + id + " ^^^^^^^^^^Eating Time is: 3s");
+            jl_sleep(2000);  
+            par {                // put down forks
+                left.write(true);
+                right.write(true);
+            }
+
+            println(id + ": I want to get up.");
+            up.write(true);      // get up
+            println(id + ": Successfully get up.");
+        }
     }
 }
 

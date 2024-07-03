@@ -1,0 +1,15 @@
+import std.*;
+
+public void main(string[] args){
+    set_high_pi7(20);
+    //jl_sleep(1000);
+    int i = 0;
+    while(i<10){
+        println(i);
+        jl_sleep(1000);
+        i++;
+    }
+
+}
+
+

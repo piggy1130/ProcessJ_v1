@@ -1,0 +1,162 @@
+pi@raspberrypi:~/ProcessJ $ pj DiningPhil_light
+0: I am thinking
+********** 0 *****Thinking Time is: 50
+0: I want to sit down.
+1: I am thinking
+********** 1 *****Thinking Time is: 1150
+1: I want to sit down.
+2: I am thinking
+********** 2 *****Thinking Time is: 3200
+2: I want to sit down.
+3: I am thinking
+********** 3 *****Thinking Time is: 950
+3: I want to sit down.
+4: I am thinking
+********** 4 *****Thinking Time is: 1450
+4: I want to sit down.
+Sat Down = 0
+0: Successfully sat down
+Sat Down = 1
+^^^^^^^^^^^^^^^ 0 ^^^^^^^^^^Eating Time is: 3s
+1: Successfully sat down
+fork 0: picked up from the right.
+fork 4: picked up from the left.
+Sat Down = 2
+0: I want to get up.
+2: Successfully sat down
+fork 0: put down from the right.
+fork 1: picked up from the right.
+fork 4: put down from the left.
+Sat Down = 3
+^^^^^^^^^^^^^^^ 1 ^^^^^^^^^^Eating Time is: 3s
+3: Successfully sat down
+fork 0: picked up from the left.
+fork 2: picked up from the right.
+Sat Down = 4
+0: Successfully get up.
+0: I am thinking
+********** 0 *****Thinking Time is: 3750
+0: I want to sit down.
+1: I want to get up.
+fork 0: put down from the left.
+fork 1: put down from the right.
+fork 3: picked up from the right.
+Sat Down = 3
+0: Successfully sat down
+^^^^^^^^^^^^^^^ 2 ^^^^^^^^^^Eating Time is: 3s
+fork 1: picked up from the left.
+Sat Down = 4
+^^^^^^^^^^^^^^^ 0 ^^^^^^^^^^Eating Time is: 3s
+1: Successfully get up.
+1: I am thinking
+********** 1 *****Thinking Time is: 3100
+1: I want to sit down.
+2: I want to get up.
+fork 0: picked up from the right.
+fork 1: put down from the left.
+fork 2: put down from the right.
+fork 4: picked up from the left.
+Sat Down = 3
+0: I want to get up.
+1: Successfully sat down
+^^^^^^^^^^^^^^^ 3 ^^^^^^^^^^Eating Time is: 3s
+fork 0: put down from the right.
+fork 2: picked up from the left.
+fork 4: put down from the left.
+Sat Down = 4
+0: Successfully get up.
+0: I am thinking
+********** 0 *****Thinking Time is: 150
+0: I want to sit down.
+^^^^^^^^^^^^^^^ 1 ^^^^^^^^^^Eating Time is: 3s
+3: I want to get up.
+fork 0: picked up from the left.
+fork 1: picked up from the right.
+fork 2: put down from the left.
+fork 3: put down from the right.
+Sat Down = 3
+0: Successfully sat down
+1: I want to get up.
+fork 0: put down from the left.
+fork 1: put down from the right.
+Sat Down = 4
+^^^^^^^^^^^^^^^ 0 ^^^^^^^^^^Eating Time is: 3s
+1: Successfully get up.
+1: I am thinking
+********** 1 *****Thinking Time is: 1800
+1: I want to sit down.
+fork 0: picked up from the right.
+fork 4: picked up from the left.
+Sat Down = 3
+0: I want to get up.
+1: Successfully sat down
+fork 0: put down from the right.
+fork 4: put down from the left.
+Sat Down = 4
+0: Successfully get up.
+0: I am thinking
+********** 0 *****Thinking Time is: 1150
+0: I want to sit down.
+^^^^^^^^^^^^^^^ 1 ^^^^^^^^^^Eating Time is: 3s
+fork 0: picked up from the left.
+fork 1: picked up from the right.
+Sat Down = 3
+0: Successfully sat down
+1: I want to get up.
+fork 0: put down from the left.
+fork 1: put down from the right.
+Sat Down = 4
+^^^^^^^^^^^^^^^ 0 ^^^^^^^^^^Eating Time is: 3s
+1: Successfully get up.
+1: I am thinking
+********** 1 *****Thinking Time is: 400
+1: I want to sit down.
+fork 0: picked up from the right.
+fork 4: picked up from the left.
+Sat Down = 3
+0: I want to get up.
+1: Successfully sat down
+fork 0: put down from the right.
+fork 4: put down from the left.
+Sat Down = 4
+0: Successfully get up.
+0: I am thinking
+********** 0 *****Thinking Time is: 950
+0: I want to sit down.
+^^^^^^^^^^^^^^^ 1 ^^^^^^^^^^Eating Time is: 3s
+fork 0: picked up from the left.
+fork 1: picked up from the right.
+Sat Down = 3
+0: Successfully sat down
+1: I want to get up.
+fork 0: put down from the left.
+fork 1: put down from the right.
+Sat Down = 4
+^^^^^^^^^^^^^^^ 0 ^^^^^^^^^^Eating Time is: 3s
+1: Successfully get up.
+1: I am thinking
+********** 1 *****Thinking Time is: 2800
+1: I want to sit down.
+fork 0: picked up from the right.
+fork 4: picked up from the left.
+Sat Down = 3
+0: I want to get up.
+1: Successfully sat down
+fork 0: put down from the right.
+fork 4: put down from the left.
+Sat Down = 4
+0: Successfully get up.
+0: I am thinking
+********** 0 *****Thinking Time is: 300
+0: I want to sit down.
+^^^^^^^^^^^^^^^ 1 ^^^^^^^^^^Eating Time is: 3s
+fork 0: picked up from the left.
+fork 1: picked up from the right.
+Sat Down = 3
+0: Successfully sat down
+1: I want to get up.
+fork 0: put down from the left.
+fork 1: put down from the right.
+Sat Down = 4
+^^^^^^^^^^^^^^^ 0 ^^^^^^^^^^Eating Time is: 3s
+^Cpi@raspberrypi:~/ProcessJ $ ^C
