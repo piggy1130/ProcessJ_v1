@@ -21,3 +21,10 @@ For Raspberry Pi GPIO "input" pin. Read Arduino information.
 get a random number between 0 and 1.  
 ## int jl_random_100();  
 get a random integer number between 0 and 100.  
+
+# Arduion:  
+If I set the PIN as of HIHG, the PIN will keep as HIGH until I reset it.  
+# ProcessJ:  
+If I set the PIN as of HIGH, the PIN will keep as HIGH until program terminates.  
+Once the program terminates, all of the PINs will go back to LOW as default.  
+
