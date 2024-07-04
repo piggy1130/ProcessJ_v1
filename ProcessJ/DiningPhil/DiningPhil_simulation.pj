@@ -6,24 +6,28 @@ void securePhilosopher(int id, chan<boolean>.write left,
 		       chan<boolean>.write up) {
     while (true) {
         if (id == 0){
-            while(get_pin_info_pi7(21) == 1){
-                println(id + " : I am done of thinking");
-                println(id + ": I want to sit down.");
-                down.write(true);    // ask to sit down
-                println (id + ": Successfully sat down");
+            while(get_pin_info_pi7(21) == 0){
+                //println(id + " : I am still thinking");
             }
+            println(id + " : I am done of thinking");
+            println(id + ": I want to sit down.");
+            down.write(true);    // ask to sit down
+            println (id + ": Successfully sat down");
             par {                // pick up forks
                 left.write(true);  
                 right.write(true);         
             }
             // let arduino to eat
-            set_high_pi7(20);
-        
+            set_high_pi7(20); // set HIGH - pin 7 in Arduino
+            
+            //int pin_16_status = get_pin_info_pi7(16);
+            //println("pin 16 status is: " + pin_16_status);
+            
             while(get_pin_info_pi7(16) == 0){ // arduino eating
-                println(id + " is eating.");
-                jl_sleep(1000);  
+                //println(id + " : I am still eating");
+                //set_low_pi7(20); // set LOW - pin 7 in Arduino
             }
-            set_low_pi7(20);
+            println("^^^^^^^^^^^^^^^ " + id + " ^^^^^^^^^^Eating Time is: 3s");
             par {                // put down forks
                 left.write(true);
                 right.write(true);
